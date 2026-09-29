@@ -1,0 +1,89 @@
+@layer base {
+  :root,
+  .light,
+  [data-theme="light"] {
+    color-scheme: light;
+
+    /* Brand */
+    --accent: oklch(0.4791 0.2956 271.34);
+    --accent-foreground: var(--snow);
+
+    /* Base */
+    --background: oklch(0.9715 0.0135 277.07);
+    --foreground: oklch(0.21 0.02 277);
+
+    --surface: var(--white);
+    --surface-foreground: var(--foreground);
+    --surface-secondary: oklch(0.955 0.012 277);
+    --surface-secondary-foreground: var(--foreground);
+    --surface-tertiary: oklch(0.935 0.015 277);
+    --surface-tertiary-foreground: var(--foreground);
+
+    --overlay: var(--white);
+    --overlay-foreground: var(--foreground);
+
+    /* Neutrals */
+    --muted: oklch(0.54 0.03 277);
+    --default: oklch(0.935 0.012 277);
+    --default-foreground: var(--foreground);
+
+    /* Fields */
+    --field-background: var(--white);
+    --field-foreground: var(--foreground);
+    --field-placeholder: var(--muted);
+
+    /* Segment */
+    --segment: var(--white);
+    --segment-foreground: var(--foreground);
+
+    /* Lines */
+    --border: oklch(0.9 0.012 277);
+    --separator: oklch(0.92 0.01 277);
+
+    --focus: var(--accent);
+    --link: var(--foreground);
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --accent: oklch(0.57 0.23 272);
+    --accent-foreground: var(--snow);
+
+    /* Base */
+    --background: oklch(0.14 0.012 277);
+    --foreground: oklch(0.97 0.008 277);
+
+    /* Surfaces*/
+    --surface: oklch(0.21 0.015 277);
+    --surface-foreground: var(--foreground);
+    --surface-secondary: oklch(0.245 0.017 277);
+    --surface-secondary-foreground: var(--foreground);
+    --surface-tertiary: oklch(0.28 0.018 277);
+    --surface-tertiary-foreground: var(--foreground);
+
+    --overlay: oklch(0.23 0.016 277);
+    --overlay-foreground: var(--foreground);
+
+    /* Neutrals */
+    --muted: oklch(0.71 0.02 277);
+    --default: oklch(0.28 0.018 277);
+    --default-foreground: var(--foreground);
+
+    /* Fields */
+    --field-background: var(--default);
+    --field-foreground: var(--foreground);
+    --field-placeholder: var(--muted);
+
+    /* Segment */
+    --segment: oklch(0.38 0.02 277);
+    --segment-foreground: var(--foreground);
+
+    /* Lines */
+    --border: oklch(0.26 0.016 277);
+    --separator: oklch(0.24 0.015 277);
+
+    --focus: var(--accent);
+    --link: var(--foreground);
+  }
+}

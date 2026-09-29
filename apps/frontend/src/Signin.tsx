@@ -1,5 +1,6 @@
 import './App.css'
 import { Button, CardHeader, Label, Card, Form, Input, Link, TextField, FieldError, Description } from '@heroui/react';
+import { Icon } from '@iconify/react';
 
 
 function Signin() {
@@ -54,6 +55,19 @@ function Signin() {
           </TextField>
           <Button fullWidth>
             Signin
+          </Button>
+          <div className="flex items-center my-4">
+            <div className="flex-grow border-t border-gray-200"></div>
+            <span className="mx-3 text-sm text-gray-400">OR</span>
+            <div className="flex-grow border-t border-gray-200"></div>
+          </div>
+          <Button className="w-full" variant="tertiary">
+            <Icon icon="devicon:google" />
+            Sign in with Google
+          </Button>
+          <Button className="w-full " variant="tertiary">
+            <Icon icon="mdi:github" />
+            Sign in with GitHub
           </Button>
         </Card.Content>
       </Card>
