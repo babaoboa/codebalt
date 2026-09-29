@@ -1,5 +1,5 @@
 import './App.css'
-import { Button, Label, Card, Form, Input, Link, TextField, FieldError, Description } from '@heroui/react';
+import { Button, Label, Card, Input, Link, TextField, FieldError } from '@heroui/react';
 import { Icon } from '@iconify/react';
 
 
@@ -36,22 +36,9 @@ function Signin() {
               className = "pb-2"
               name="password"
               type="password"
-              validate={(value) => {
-                if (value.length < 8) {
-                  return "Password must be at least 8 characters";
-                }
-                if (!/[A-Z]/.test(value)) {
-                  return "Password must contain at least one uppercase letter";
-                }
-                if (!/[0-9]/.test(value)) {
-                  return "Password must contain at least one number";
-                }
-                return null;
-              }}
             >
               <Label> Password </Label>
               <Input placeholder="••••••••" variant="secondary" />
-              <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
               <FieldError />
             </TextField>
             <Button fullWidth>
