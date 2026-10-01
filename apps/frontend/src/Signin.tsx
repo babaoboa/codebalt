@@ -6,7 +6,7 @@ import { Icon } from '@iconify/react';
 function Signin() {
 
   return (
-    <div className="flex flex-col gap-4 bg-background h-screen items-center justify-center ">
+    <div className="flex flex-col gap-4 bg-background h-screen items-center justify-center "> 
       <div>
         <Card className="p-6">
           <Card.Header>
@@ -49,14 +49,14 @@ function Signin() {
               <span className="mx-3 text-sm text-muted">OR</span>
               <div className="flex-grow border-t border-separator"></div>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex gap-2">
               <Button className="w-full" variant="tertiary">
                 <Icon icon="devicon:google" />
-                Sign in with Google
+                
               </Button>
               <Button className="w-full" variant="tertiary">
                 <Icon icon="mdi:github" />
-                Sign in with GitHub
+                
               </Button>
             </div>
           </Card.Content>
@@ -64,7 +64,7 @@ function Signin() {
         </Card>
       </div>
       <div className="flex">
-        <p className="pr-1">
+        <p className="pr-1 text-muted">
           Don't have an account?
         </p>
         <Link href="#">
