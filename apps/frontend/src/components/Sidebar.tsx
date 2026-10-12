@@ -1,6 +1,5 @@
 import '../App.css'
-import { Button, Label, Card, Input, Link, TextField, FieldError } from '@heroui/react';
-import { Icon } from '@iconify/react';
+import { Card } from '@heroui/react';
 
 export default function Sidebar () {
     return (

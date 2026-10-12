@@ -11,4 +11,13 @@ export default defineConfig({
     tailwindcss(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  server: {
+    // fail instead of drifting to another port, since the backend only trusts this one
+    port: 9785,
+    strictPort: true,
+    // forward API calls to the backend so the browser sees one origin
+    proxy: {
+      '/api': 'http://localhost:9786',
+    },
+  },
 })

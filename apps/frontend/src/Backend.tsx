@@ -1,4 +1,3 @@
-import { Button } from '@heroui/react';
 import Sidebar from './components/Sidebar';
 
 function Backend() {
