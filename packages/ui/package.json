@@ -7,7 +7,9 @@
     "./button": "./src/components/Button.tsx",
     "./sidebar": "./src/components/Sidebar.tsx",
     "./styles.css": "./src/styles/index.css",
-    "./tokens.css": "./src/styles/tokens.css"
+    "./tokens.css": "./src/styles/tokens.css",
+    "./fonts.css": "./src/styles/fonts.css",
+    "./fonts/*": "./src/assets/fonts/*"
   },
   "sideEffects": [
     "**/*.css"
