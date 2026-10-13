@@ -3,12 +3,8 @@
   .light,
   [data-theme="light"] {
     color-scheme: light;
-
-    /* Brand */
     --accent: oklch(0.591646 0.217985 0.584);
     --accent-foreground: var(--white);
-
-    /* Base */
     --background: oklch(0.982446 0.010114 325.653);
     --foreground: oklch(0.325698 0.116116 325.037);
 
@@ -21,22 +17,14 @@
 
     --overlay: var(--white);
     --overlay-foreground: var(--foreground);
-
-    /* Neutrals */
     --muted: oklch(0.494754 0.190937 354.544);
     --default: oklch(0.939552 0.024286 321.664);
     --default-foreground: var(--foreground);
-
-    /* Fields */
     --field-background: var(--white);
     --field-foreground: var(--foreground);
     --field-placeholder: oklch(0.549927 0.090215 323.149);
-
-    /* Segment */
     --segment: var(--white);
     --segment-foreground: var(--foreground);
-
-    /* Lines */
     --border: oklch(0.923531 0.021247 328.096);
     --separator: var(--border);
 
@@ -49,12 +37,8 @@
     color-scheme: dark;
     --accent: oklch(0.460685 0.185347 4.099);
     --accent-foreground: oklch(0.901233 0.057189 343.694);
-
-    /* Base */
     --background: oklch(0.22813 0.020366 307.469);
     --foreground: oklch(0.980735 0.004092 301.426);
-
-    /* Surfaces*/
     --surface: oklch(0.267101 0.02016 311.799);
     --surface-foreground: var(--foreground);
     --surface-secondary: oklch(0.279864 0.021572 309.532);
@@ -64,26 +48,16 @@
 
     --overlay: oklch(0.154761 0.01316 338.901);
     --overlay-foreground: var(--foreground);
-
-    /* Neutrals */
     --muted: oklch(0.880303 0.03077 342.696);
     --default: oklch(0.313674 0.030572 310.061);
     --default-foreground: var(--foreground);
-
-    /* Fields */
     --field-background: var(--default);
     --field-foreground: var(--foreground);
     --field-placeholder: oklch(0.657087 0.028226 307.985);
-
-    /* Segment */
     --segment: oklch(0.364912 0.050794 308.491);
     --segment-foreground: var(--foreground);
-
-    /* Lines */
     --border: oklch(0.266943 0.015262 302.425);
     --separator: var(--border);
-
-    /* T3 Chat's dark focus ring is brighter than its dark accent */
     --focus: oklch(0.591646 0.217985 0.584);
     --link: var(--foreground);
   }

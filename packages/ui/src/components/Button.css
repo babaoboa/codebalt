@@ -1,12 +1,13 @@
 @layer components {
   .local-button {
-    --button-height: 2.25rem;
+    --button-height: 32px;
     --button-padding: 0.75rem;
     --button-radius: 0.5rem;
     --button-gap: 0.375rem;
     --button-border: var(--border);
     --button-shadow: 0 1px 2px rgb(0 0 0 / 8%);
     display: inline-flex;
+    box-sizing: border-box;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -20,7 +21,7 @@
     background: var(--surface);
     color: var(--foreground);
     box-shadow: var(--button-shadow);
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 500;
     line-height: 1;
     white-space: nowrap;
@@ -31,25 +32,26 @@
   }
 
   .local-button[data-size="xs"] {
-    --button-height: 1.25rem;
-    --button-padding: 0.375rem;
+    --button-height: 24px;
+    --button-padding: 0.5rem;
     --button-radius: 0.25rem;
     --button-gap: 0.25rem;
     font-size: 0.75rem;
   }
 
   .local-button[data-size="sm"] {
-    --button-height: 1.625rem;
-    --button-padding: 0.5rem;
+    --button-height: 28px;
+    --button-padding: 0.625rem;
     --button-radius: 0.375rem;
     --button-gap: 0.25rem;
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
   }
 
   .local-button[data-size="lg"] {
-    --button-height: 2.5rem;
+    --button-height: 40px;
     --button-padding: 1rem;
     --button-gap: 0.5rem;
+    font-size: 1rem;
   }
 
   .local-button[data-full-width] {
@@ -107,8 +109,6 @@
     outline: 2px solid var(--focus);
     outline-offset: 3px;
   }
-
-  /* Compress the raised surface while either a pointer or keyboard press is held. */
   .local-button:not(:disabled):active,
   .local-button:not(:disabled)[data-pressed] {
     transform: translateY(1px) scale(0.98);

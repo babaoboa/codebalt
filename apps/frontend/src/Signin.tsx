@@ -1,4 +1,3 @@
-import './App.css'
 import { useState } from 'react';
 import { Link } from '@heroui/react';
 import CodeStep from './components/sign-in/CodeStep';

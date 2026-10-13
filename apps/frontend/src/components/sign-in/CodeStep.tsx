@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Card, Description, Form, InputOTP, Label, REGEXP_ONLY_DIGITS } from '@heroui/react';
-import { Button } from '../Button';
+import { Button } from '@repo/ui/button';
 import { emailOtp, retryAfterOf, signIn } from '../../lib/auth-client';
 import { useCooldown } from '../../lib/use-cooldown';
 

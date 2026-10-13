@@ -1,8 +1,6 @@
-import '../App.css'
 import { useEffect, useState } from 'react';
 import type { Treaty } from '@elysia/eden';
-import { Card } from '@heroui/react';
-import { Button } from './Button';
+import { Sidebar as SidebarView } from '@repo/ui/sidebar';
 import { backend } from '../lib/api';
 import { signOut } from '../lib/auth-client';
 
@@ -15,19 +13,5 @@ export default function Sidebar () {
         backend.api.me.get().then(({ data }) => setMe(data))
     }, [])
 
-    return (
-        <div >
-            <Card>
-                <Card.Header>
-                    <Card.Title>hello{me && `, ${me.name}`}!</Card.Title>
-                    {me?.organizations[0] && <Card.Description>{me.organizations[0].name}</Card.Description>}
-                </Card.Header>
-                <Card.Footer>
-                    <Button variant="ghost" onClick={() => signOut()}>
-                        Sign out
-                    </Button>
-                </Card.Footer>
-            </Card>
-        </div>
-    )
+    return <SidebarView name={me?.name} organizationName={me?.organizations[0]?.name} onSignOut={() => { signOut() }} />
 }
