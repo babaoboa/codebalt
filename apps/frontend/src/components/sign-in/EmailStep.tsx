@@ -60,14 +60,14 @@ export default function EmailStep({ defaultEmail, onCodeSent }: Props) {
   }
 
   return (
-    <Card className="w-full max-w-sm p-6">
+    <Card className="w-full max-w-sm p-ui-24">
       <Card.Header>
         <Card.Title className="text-xl">Sign in</Card.Title>
         <Card.Description>Use your work email to access your Co(de)balt account.</Card.Description>
       </Card.Header>
       <Card.Content>
         <Form
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-ui-16"
           validationErrors={cooldown > 0 ? { email: `Too many attempts. Try again in ${cooldown}s.` } : {}}
           onSubmit={handleSubmit}
         >

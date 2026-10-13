@@ -8,7 +8,7 @@ function Signin() {
   const [codeSent, setCodeSent] = useState(false)
 
   return (
-    <div className="flex flex-col gap-4 bg-background min-h-screen items-center justify-center p-4">
+    <div className="flex flex-col gap-ui-16 bg-background min-h-screen items-center justify-center p-ui-16">
       {codeSent ? (
         <CodeStep email={email} onBack={() => setCodeSent(false)} />
       ) : (
@@ -21,7 +21,7 @@ function Signin() {
         />
       )}
       <div className="flex">
-        <p className="pr-1 text-muted">
+        <p className="pr-ui-4 text-muted">
           Don't have an account?
         </p>
         <Link href="#">

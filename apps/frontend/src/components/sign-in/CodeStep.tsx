@@ -52,7 +52,7 @@ export default function CodeStep({ email, onBack }: Props) {
   }
 
   return (
-    <Card className="w-full max-w-sm p-6">
+    <Card className="w-full max-w-sm p-ui-24">
       <Card.Header>
         <Card.Title className="text-xl">Check your email</Card.Title>
         <Card.Description>
@@ -60,8 +60,8 @@ export default function CodeStep({ email, onBack }: Props) {
         </Card.Description>
       </Card.Header>
       <Card.Content>
-        <Form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-2">
+        <Form className="flex flex-col gap-ui-16" onSubmit={handleSubmit}>
+          <div className="flex flex-col gap-ui-8">
             <Label id="code-label">Sign-in code</Label>
             <Description id="code-description">The code expires in 5 minutes.</Description>
             <InputOTP
