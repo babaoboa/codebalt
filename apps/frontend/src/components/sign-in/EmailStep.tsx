@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
-import { Alert, Button, Card, Description, FieldError, Form, Input, Label, Spinner, TextField } from '@heroui/react';
+import { Alert, Card, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
+import { Button } from '../Button';
 import { emailOtp, retryAfterOf, signIn } from '../../lib/auth-client';
 import { useCooldown } from '../../lib/use-cooldown';
 
@@ -95,13 +96,8 @@ export default function EmailStep({ defaultEmail, onCodeSent }: Props) {
             <Description>We'll email you a code on the next screen.</Description>
             <FieldError />
           </TextField>
-          <Button fullWidth type="submit" isPending={isPending}>
-            {({ isPending }) => (
-              <>
-                {isPending && <Spinner color="current" size="sm" />}
-                Continue
-              </>
-            )}
+          <Button fullWidth variant="primary" type="submit" loading={isPending}>
+            Continue
           </Button>
         </Form>
       </Card.Content>

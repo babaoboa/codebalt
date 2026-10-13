@@ -1,7 +1,8 @@
 import '../App.css'
 import { useEffect, useState } from 'react';
 import type { Treaty } from '@elysia/eden';
-import { Button, Card } from '@heroui/react';
+import { Card } from '@heroui/react';
+import { Button } from './Button';
 import { backend } from '../lib/api';
 import { signOut } from '../lib/auth-client';
 
@@ -22,7 +23,7 @@ export default function Sidebar () {
                     {me?.organizations[0] && <Card.Description>{me.organizations[0].name}</Card.Description>}
                 </Card.Header>
                 <Card.Footer>
-                    <Button variant="tertiary" onPress={() => signOut()}>
+                    <Button variant="ghost" onClick={() => signOut()}>
                         Sign out
                     </Button>
                 </Card.Footer>

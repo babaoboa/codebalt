@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
-import { Button, Card, Description, Form, InputOTP, Label, REGEXP_ONLY_DIGITS, Spinner } from '@heroui/react';
+import { Card, Description, Form, InputOTP, Label, REGEXP_ONLY_DIGITS } from '@heroui/react';
+import { Button } from '../Button';
 import { emailOtp, retryAfterOf, signIn } from '../../lib/auth-client';
 import { useCooldown } from '../../lib/use-cooldown';
 
@@ -96,19 +97,14 @@ export default function CodeStep({ email, onBack }: Props) {
               {fieldError}
             </span>
           </div>
-          <Button fullWidth type="submit" isPending={isPending} isDisabled={code.length !== 6 || verifyCooldown > 0}>
-            {({ isPending }) => (
-              <>
-                {isPending && <Spinner color="current" size="sm" />}
-                Sign in
-              </>
-            )}
+          <Button fullWidth variant="primary" type="submit" loading={isPending} disabled={code.length !== 6 || verifyCooldown > 0}>
+            Sign in
           </Button>
           <div className="flex items-center justify-between">
-            <Button size="sm" variant="ghost" onPress={onBack}>
+            <Button size="sm" variant="ghost" onClick={onBack}>
               Use a different email
             </Button>
-            <Button size="sm" variant="ghost" isDisabled={resendCooldown > 0} onPress={resend}>
+            <Button size="sm" variant="ghost" disabled={resendCooldown > 0} onClick={resend}>
               {resendCooldown > 0 ? `Resend in ${resendCooldown}s` : "Resend code"}
             </Button>
           </div>
