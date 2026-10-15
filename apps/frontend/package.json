@@ -1,37 +1,29 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "@repo/frontend",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "oxlint . --deny-warnings",
     "check-types": "tsc -b",
-    "preview": "vite preview",
-    "lint:fix": "oxlint . --fix --deny-warnings"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@elysia/eden": "^1.4.10",
     "@repo/ui": "workspace:*",
-    "@tanstack/react-query": "^5.104.2",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "zustand": "^5.0.15",
-    "@repo/schemas": "workspace:*"
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router": "8.4.0",
+    "zustand": "5.0.15"
   },
   "devDependencies": {
-    "@types/node": "^24.6.0",
-    "@types/react": "^19.2.6",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.0.4",
-    "api": "workspace:*",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "bun-types": "^1.4.3",
-    "elysia": "1.4.30",
-    "shx": "^0.4.0",
-    "typescript": "~5.9.3",
-    "vite": "^7.3.2",
-    "@repo/oxlint-config": "workspace:*"
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "7.0.2",
+    "vite": "8.3.4"
   }
 }

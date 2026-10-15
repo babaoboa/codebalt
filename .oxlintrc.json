@@ -1,7 +1,18 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "extends": ["./packages/oxlint-config/base.json"],
-  "env": {
-    "node": true
-  }
+  "plugins": ["typescript", "react", "unicorn", "oxc", "jsx-a11y"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error",
+    "react/only-export-components": [
+      "warn",
+      {
+        "allowConstantExport": true
+      }
+    ]
+  },
+  "ignorePatterns": ["**/dist/**", "**/node_modules/**", "**/.turbo/**"]
 }

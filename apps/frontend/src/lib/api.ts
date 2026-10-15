@@ -1,6 +1,17 @@
-import { treaty } from "@elysia/eden";
-import type { App } from "api";
+export type Health = { status: 'ok'; service: string }
 
-export const api = treaty<App>(
-  import.meta.env.VITE_API_URL || window.location.origin,
-);
+export async function getHealth(signal?: AbortSignal): Promise<Health> {
+  const response = await fetch('/api/health', { signal })
+  if (!response.ok) throw new Error('API returned HTTP ' + response.status)
+  const body: unknown = await response.json()
+  if (
+    typeof body !== 'object' ||
+    body === null ||
+    !('status' in body) ||
+    body.status !== 'ok' ||
+    !('service' in body) ||
+    typeof body.service !== 'string'
+  )
+    throw new Error('API returned an invalid health response')
+  return { status: body.status, service: body.service }
+}

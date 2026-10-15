@@ -1,89 +1,84 @@
-/**
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { greetingNameConstraints } from "@repo/schemas";
-import { greetingMutationOptions, healthQueryOptions } from "./lib/api-options";
-import { useUiStore } from "./stores/ui";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { Button } from "@repo/ui";
+import { Link, NavLink, Route, Routes } from 'react-router'
+import { Card } from '@repo/ui'
+import { Counter } from './components/counter'
+import { ApiStatus } from './components/api-status'
 
-export default function App() {
-  const count = useUiStore((state) => state.count);
-  const increment = useUiStore((state) => state.increment);
-  const name = useUiStore((state) => state.name);
-  const setName = useUiStore((state) => state.setName);
-  const health = useQuery(healthQueryOptions);
-  const greeting = useMutation(greetingMutationOptions);
-  const message = greeting.isError
-    ? greeting.error.message
-    : (greeting.data?.message ?? "Check the typed API connection");
-
+export function App() {
   return (
-    <div className="app">
-      <div className="app-inner">
-        <div>
-          <a href="https://vite.dev" target="_blank" className="logo-link">
-            <img
-              alt="Vite logo"
-              src={viteLogo}
-              className="logo animated-logo"
-            />
-          </a>
-          <a href="https://react.dev" target="_blank" className="logo-link">
-            <img
-              alt="React logo"
-              src={reactLogo}
-              className="logo react-logo animated-logo"
-            />
-          </a>
-        </div>
-        <h1 className="app-title">Vite + React</h1>
-        <div className="card">
-          <p role="status">
-            {health.isPending
-              ? "Checking API…"
-              : health.isError
-                ? "API unavailable"
-                : "API connected"}
-          </p>
-          <form
-            noValidate
-            onSubmit={(event) => {
-              event.preventDefault();
-              greeting.mutate({ name });
-            }}
-          >
-            <label htmlFor="greeting-name">Name</label>
-            <input
-              id="greeting-name"
-              name="name"
-              type="text"
-              value={name}
-              maxLength={greetingNameConstraints.maxLength}
-              onChange={(event) => setName(event.target.value)}
-              className="greeting-input"
-            />
-            <Button type="submit" disabled={greeting.isPending}>
-              {greeting.isPending ? "Connecting…" : "Call the API"}
-            </Button>
-          </form>
-          <p role="status">{message}</p>
-          <button className="counter-button" onClick={increment}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </div>
+    <div className="shell">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <header>
+        <Link className="brand" to="/">
+          <span className="brand-icon">c</span>codebalt
+        </Link>
+        <nav aria-label="Main navigation">
+          <NavLink to="/" end>
+            Overview
+          </NavLink>
+          <NavLink to="/playground">Playground</NavLink>
+        </nav>
+        <span className="workspace-label">Your workspace</span>
+      </header>
+      <main id="main">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <p className="eyebrow">A fresh start</p>
+                <h1>Ready for your next idea.</h1>
+                <p className="intro">
+                  React on the frontend. Go on the backend. One workspace to
+                  build from.
+                </p>
+                <div className="grid">
+                  <Counter />
+                  <ApiStatus />
+                </div>
+                <section className="stack" aria-label="Workspace stack">
+                  <span>Bun</span>
+                  <span>Turborepo</span>
+                  <span>Vite + React</span>
+                  <span>React Router</span>
+                  <span>Zustand</span>
+                  <span>Go</span>
+                  <span>Oxlint</span>
+                </section>
+              </>
+            }
+          />
+          <Route
+            path="/playground"
+            element={
+              <>
+                <p className="eyebrow">Playground</p>
+                <h1>A little state goes a long way.</h1>
+                <p className="intro">
+                  The counter keeps its value as you move between pages.
+                  Refreshing starts a new session.
+                </p>
+                <Counter />
+              </>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Card
+                title="Page not found"
+                description="This route does not exist."
+              >
+                <Link to="/">Back to overview</Link>
+              </Card>
+            }
+          />
+        </Routes>
+      </main>
+      <footer>
+        Codebalt <span>Built to make room for what comes next.</span>
+      </footer>
     </div>
-  );
+  )
 }

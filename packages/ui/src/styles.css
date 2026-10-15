@@ -1,19 +1,49 @@
-:root {
-  --ui-primary-color: blue;
-  --ui-secondary-color: green;
-  --ui-padding: 10px;
+.ui-card {
+  background: #fff;
+  border: 1px solid #dde2ee;
+  border-radius: 18px;
+  padding: 30px;
 }
-
+.ui-card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: -0.03em;
+}
+.ui-card-description {
+  color: #606b81;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 8px 0 24px;
+}
 .ui-button {
-  padding: var(--ui-padding);
-  color: white;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  padding: 10px 16px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
-  background-color: var(--ui-primary-color);
-  border: none;
-  border-radius: 4px;
-  transition: background-color 0.2s;
 }
-
-.ui-button:hover {
-  background-color: var(--ui-secondary-color);
+.ui-button--primary {
+  background: #3454d1;
+  color: #fff;
+}
+.ui-button--primary:hover {
+  background: #2643b6;
+}
+.ui-button--secondary {
+  background: #fff;
+  color: #35405a;
+  border-color: #d9dfeb;
+}
+.ui-button--secondary:hover {
+  background: #f2f4fa;
+}
+.ui-button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+.ui-button:focus-visible {
+  outline: 3px solid #8297f1;
+  outline-offset: 3px;
 }
