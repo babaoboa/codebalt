@@ -1,3 +1,95 @@
-@import "tailwindcss";
-@import "@repo/ui/styles.css";
-@source "../../../packages/ui/src";
+.app {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-inner {
+  max-width: 1280px;
+}
+
+.logo-link {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: none;
+}
+
+.logo-link:hover {
+  color: #535bf2;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  transition: filter 300ms;
+  will-change: filter;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.react-logo:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.app-title {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: var(--ui-primary-color);
+}
+
+.card {
+  padding: 2em;
+}
+
+.greeting-input {
+  padding: 0.6rem;
+  margin: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.counter-button {
+  padding: 0.6em 1.2em;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  background-color: hotpink;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: border-color 250ms;
+}
+
+.counter-button:hover {
+  border-color: #646cff;
+}
+
+.counter-button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animated-logo {
+    animation: logo-spin 20s linear infinite;
+  }
+}

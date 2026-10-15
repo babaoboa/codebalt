@@ -1,4 +1,6 @@
-import { treaty } from '@elysia/eden'
-import type { App } from 'backend'
+import { treaty } from "@elysia/eden";
+import type { App } from "api";
 
-export const backend = treaty<App>(window.location.origin)
+export const api = treaty<App>(
+  import.meta.env.VITE_API_URL || window.location.origin,
+);

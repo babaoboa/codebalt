@@ -5,16 +5,18 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "format": "prettier --write \"**/*.{ts,tsx,js,mjs,json,md,css,html}\"",
+    "check-types": "turbo run check-types",
+    "test": "turbo run test",
+    "lint:fix": "oxlint . --fix --deny-warnings"
   },
   "devDependencies": {
+    "oxlint": "^1.88.0",
     "prettier": "3.9.6",
-    "turbo": "^2.11.5",
-    "typescript": "7.0.2"
+    "turbo": "^2.11.8"
   },
   "engines": {
-    "node": ">=24"
+    "node": ">=24.20.0"
   },
   "devEngines": {
     "packageManager": {
@@ -25,8 +27,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "iconify": "^1.4.0"
-  }
+  ]
 }
