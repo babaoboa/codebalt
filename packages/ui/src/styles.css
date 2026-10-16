@@ -1,49 +1,31 @@
-.ui-card {
-  background: #fff;
-  border: 1px solid #dde2ee;
-  border-radius: 18px;
-  padding: 30px;
+@import '@fontsource-variable/funnel-display';
+@import '@fontsource-variable/atkinson-hyperlegible-next';
+@import '@fontsource-variable/atkinson-hyperlegible-next/wght-italic.css';
+
+:root {
+  --font-display: 'Funnel Display Variable', system-ui, sans-serif;
+  --font-text: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif;
+  --font-default: var(--font-display);
+
+  font-family: var(--font-default);
 }
-.ui-card h2 {
-  margin: 0;
-  font-size: 1.1rem;
-  letter-spacing: -0.03em;
+
+body {
+  font-family: var(--font-text);
 }
-.ui-card-description {
-  color: #606b81;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin: 8px 0 24px;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-default);
 }
-.ui-button {
-  border: 1px solid transparent;
-  border-radius: 9px;
-  padding: 10px 16px;
-  font: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-.ui-button--primary {
-  background: #3454d1;
-  color: #fff;
-}
-.ui-button--primary:hover {
-  background: #2643b6;
-}
-.ui-button--secondary {
-  background: #fff;
-  color: #35405a;
-  border-color: #d9dfeb;
-}
-.ui-button--secondary:hover {
-  background: #f2f4fa;
-}
-.ui-button:disabled {
-  opacity: 0.55;
-  cursor: wait;
-}
-.ui-button:focus-visible {
-  outline: 3px solid #8297f1;
-  outline-offset: 3px;
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }

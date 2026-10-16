@@ -41,6 +41,10 @@
     "packages/ui": {
       "name": "@repo/ui",
       "version": "0.0.0",
+      "dependencies": {
+        "@fontsource-variable/atkinson-hyperlegible-next": "5.3.0",
+        "@fontsource-variable/funnel-display": "5.3.0",
+      },
       "devDependencies": {
         "@repo/typescript-config": "workspace:*",
         "@types/react": "19.3.0",
@@ -54,6 +58,10 @@
     },
   },
   "packages": {
+    "@fontsource-variable/atkinson-hyperlegible-next": ["@fontsource-variable/atkinson-hyperlegible-next@5.3.0", "", {}, "sha512-UnLzNUy1RWoLDfydAatP4NaRm99X/WbQEph7q/PymJnCFIOOwKOx3pBmp5ys8trO0dM+CKGuJgeZP9fAR4mQpA=="],
+
+    "@fontsource-variable/funnel-display": ["@fontsource-variable/funnel-display@5.3.0", "", {}, "sha512-o/12lyrfflx5QAQFa+hAl0uBeWoBUAm5w71j+KssBseo++XJT3tnveDSg5IAnAdiclQHfFuEZiL5Wn2BjuFxtw=="],
+
     "@oxc-project/types": ["@oxc-project/types@0.154.0", "", {}, "sha512-KYOUGQFlLWR+s4QMV2Q9ko38TZm7EdO87Qm7rvZLqk/webse/cDjtyxKhg/47l0byCbs/k46LT8qc4PKjAikzA=="],
 
     "@oxlint/binding-android-arm-eabi": ["@oxlint/binding-android-arm-eabi@1.88.0", "", { "os": "android", "cpu": "arm" }, "sha512-k6Fgkf86ubfeH4GvqYsRolfuVAp0pfYVZvifSlXNHPdMaWUOfxUrmLEeDD7hF6U2oJuhsVxhSWq86/xCJ+9MmA=="],

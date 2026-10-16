@@ -13,9 +13,8 @@ bun run dev
 
 - Frontend: http://localhost:5173
 - API health: http://127.0.0.1:8080/api/health
-- Playground: http://localhost:5173/playground
 
-No environment files are required. Both services start together. The frontend's counter demonstrates Zustand state shared between routes. The API card makes a real request to the Go server.
+No environment files are required. Both services start together. The frontend starts with a minimal home page. React Router and Zustand are installed for application development.
 
 ## Workspace
 
@@ -58,7 +57,7 @@ Optional examples live next to each app. Copy an example to .env.local in that a
 
 - apps/api: API_ADDR defaults to 127.0.0.1:8080. Set 0.0.0.0:8080 explicitly for container access. Bun loads the app's environment file when running its scripts; direct Go commands require exported environment variables.
 - apps/frontend: API_PROXY_TARGET defaults to http://127.0.0.1:8080. Update it if you change the API address.
-- The frontend requests /api/health through Vite's development proxy. Backend addresses are not bundled into client code.
+- Requests to /api/* are forwarded through Vite's development proxy. Backend addresses are not bundled into client code.
 
 The API has bounded HTTP timeouts and handles SIGINT/SIGTERM with graceful shutdown. It returns JSON health data, rejects unsupported methods, and returns 404 for unknown routes.
 
@@ -74,7 +73,7 @@ bun run --filter @repo/api start
 bun run --filter @repo/frontend preview
 ```
 
-Build outputs are apps/frontend/dist and apps/api/dist/server. Serve the frontend with a static web server that falls back to index.html for client routes such as /playground. Configure that server or your reverse proxy to forward /api/* to Go. Vite's development proxy is development-only; preview does not configure a production API proxy.
+Build outputs are apps/frontend/dist and apps/api/dist/server. Serve the frontend with a static web server that falls back to index.html for client routes. Configure that server or your reverse proxy to forward /api/* to Go. Vite's development proxy is development-only; preview does not configure a production API proxy.
 
 Turborepo caches frontend builds and checks. Native Go tasks bypass Turbo caching so binaries and checks cannot be reused across incompatible Go toolchains or platforms; Go's own cache still applies. Environment files participate in frontend build hashes, and API_ADDR/API_PROXY_TARGET pass through Turbo's strict development environment.
 
