@@ -1,0 +1,11 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+  - name: codebalt-application
+    url: http://server:3000
+    routes:
+      - name: codebalt-route
+        paths:
+          - /
+        strip_path: false

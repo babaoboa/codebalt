@@ -1,0 +1,63 @@
+import { env } from "@codebalt/env/server";
+import Stripe from "stripe";
+
+// No `apiVersion` is pinned on purpose: the Stripe SDK defaults to the API
+// version it was built against (its `LatestApiVersion`), so the types always
+// line up with the installed `stripe` package. Pinning a literal here goes stale
+// on every SDK bump and breaks type-checking. Pin one explicitly only if you
+// need to lock behavior, and bump it whenever you upgrade `stripe`.
+export const stripe = new Stripe(env.STRIPE_SECRET_KEY);
+
+export async function createCheckoutSession(params: {
+  priceId: string;
+  successUrl: string;
+  cancelUrl: string;
+  customerId?: string;
+  metadata?: Record<string, string>;
+}) {
+  const session = await stripe.checkout.sessions.create({
+    mode: "payment",
+    payment_method_types: ["card"],
+    line_items: [
+      {
+        price: params.priceId,
+        quantity: 1,
+      },
+    ],
+    success_url: params.successUrl,
+    cancel_url: params.cancelUrl,
+    customer: params.customerId,
+    metadata: params.metadata,
+  });
+
+  return session;
+}
+
+export async function createSubscriptionCheckout(params: {
+  priceId: string;
+  successUrl: string;
+  cancelUrl: string;
+  customerId?: string;
+  metadata?: Record<string, string>;
+}) {
+  const session = await stripe.checkout.sessions.create({
+    mode: "subscription",
+    payment_method_types: ["card"],
+    line_items: [
+      {
+        price: params.priceId,
+        quantity: 1,
+      },
+    ],
+    success_url: params.successUrl,
+    cancel_url: params.cancelUrl,
+    customer: params.customerId,
+    metadata: params.metadata,
+  });
+
+  return session;
+}
+
+export async function constructWebhookEvent(payload: string | Buffer, signature: string) {
+  return stripe.webhooks.constructEvent(payload, signature, env.STRIPE_WEBHOOK_SECRET);
+}

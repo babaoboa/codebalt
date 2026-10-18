@@ -1,0 +1,31 @@
+{
+  "name": "@codebalt/auth",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@better-auth/core": "1.6.22",
+    "@better-auth/drizzle-adapter": "1.6.22",
+    "@codebalt/db": "workspace:*",
+    "@codebalt/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "stripe": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@codebalt/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

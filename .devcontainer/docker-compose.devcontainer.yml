@@ -1,0 +1,9 @@
+services:
+  devcontainer:
+    image: "oven/bun:1"
+    command: sleep infinity
+    init: true
+    environment:
+      DEVCONTAINER: "true"
+    volumes:
+      - .:/workspaces/codebalt:cached

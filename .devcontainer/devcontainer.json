@@ -1,0 +1,20 @@
+{
+  "name": "codebalt",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.devcontainer.yml"],
+  "service": "devcontainer",
+  "workspaceFolder": "/workspaces/codebalt",
+  "features": {},
+  "runServices": ["devcontainer", "kong", "web", "server", "db"],
+  "forwardPorts": [8000, 8001, 3001, 3000, 5432],
+  "postCreateCommand": "bun install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
+}

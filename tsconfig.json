@@ -1,0 +1,3 @@
+{
+  "extends": "@codebalt/config/tsconfig.base.json"
+}

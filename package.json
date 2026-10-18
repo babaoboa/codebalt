@@ -1,31 +1,64 @@
 {
   "name": "codebalt",
   "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ],
+    "catalog": {
+      "dotenv": "^17.4.2",
+      "zod": "^4.6.5",
+      "typescript": "^6.0.3",
+      "@types/bun": "^1.4.2",
+      "hono": "^4.12.27",
+      "@trpc/server": "^11.19.0",
+      "better-auth": "1.6.22",
+      "stripe": "^22.6.2",
+      "react": "19.2.8",
+      "@types/react": "~19.2.18",
+      "vitest": "4.1.8",
+      "@vitest/ui": "4.1.8",
+      "@vitest/coverage-v8": "4.1.8",
+      "jsdom": "^29.1.1",
+      "@playwright/test": "^1.63.0",
+      "playwright": "^1.63.0",
+      "@trpc/client": "^11.19.0"
+    }
+  },
   "type": "module",
-  "packageManager": "bun@1.4.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "dev": "turbo run dev",
-    "dev:frontend": "turbo run dev --filter=@repo/frontend",
-    "dev:api": "turbo run dev --filter=@repo/api",
-    "build": "turbo run build",
-    "lint": "turbo run lint",
-    "lint:fix": "oxlint apps/frontend packages/ui --fix --deny-warnings",
-    "check-types": "turbo run check-types",
-    "check": "turbo run lint check-types build",
-    "format": "prettier --write . && bun run --filter @repo/api format",
-    "format:check": "prettier --check . && bun run --filter @repo/api format:check"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev:web": "turbo -F web dev",
+    "dev:server": "turbo -F server dev",
+    "db:push": "turbo -F @codebalt/db db:push",
+    "db:studio": "turbo -F @codebalt/db db:studio",
+    "db:generate": "turbo -F @codebalt/db db:generate",
+    "db:migrate": "turbo -F @codebalt/db db:migrate",
+    "db:start": "turbo -F @codebalt/db db:start",
+    "db:watch": "turbo -F @codebalt/db db:watch",
+    "db:stop": "turbo -F @codebalt/db db:stop",
+    "db:down": "turbo -F @codebalt/db db:down",
+    "test": "bun run --filter web test && bun run --filter server test && bun run --filter @codebalt/api test",
+    "check": "oxlint && oxfmt --write"
+  },
+  "dependencies": {
+    "@codebalt/env": "workspace:*",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
-    "turbo": "2.11.8",
-    "oxlint": "1.88.0",
-    "prettier": "3.9.10"
+    "@codebalt/config": "workspace:*",
+    "@types/bun": "catalog:",
+    "oxfmt": "^0.56.0",
+    "oxlint": "^1.86.0",
+    "turbo": "2.10.11",
+    "typescript": "catalog:"
   },
-  "engines": {
-    "node": ">=24.20.0",
-    "bun": ">=1.4.0"
-  }
+  "overrides": {
+    "kysely": "0.28.17"
+  },
+  "packageManager": "bun@1.4.0"
 }

@@ -1,0 +1,67 @@
+# Docker Compose for codebalt
+# Full-stack container orchestration
+
+name: codebalt
+
+services:
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    container_name: codebalt-web
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - VITE_API_URL=http://server:3001
+    restart: unless-stopped
+    depends_on:
+      - server
+    networks:
+      - codebalt-network
+
+  server:
+    build:
+      context: .
+      dockerfile: apps/server/Dockerfile
+    env_file:
+      - apps/server/.env
+    container_name: codebalt-server
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=postgresql://postgres:password@db:5432/codebalt
+    restart: unless-stopped
+    depends_on:
+      - db
+    networks:
+      - codebalt-network
+
+  db:
+    image: postgres:16-alpine
+    container_name: codebalt-postgres
+    environment:
+      POSTGRES_DB: codebalt
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - codebalt_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - codebalt-network
+
+networks:
+  codebalt-network:
+    driver: bridge
+
+volumes:
+  codebalt_postgres_data:

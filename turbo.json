@@ -1,19 +1,11 @@
 {
-  "$schema": "https://turborepo.dev/schema.json",
-  "globalDependencies": [".oxlintrc.json"],
-  "globalPassThroughEnv": [
-    "GOCACHE",
-    "GOMODCACHE",
-    "GOPATH",
-    "GOROOT",
-    "GOPROXY"
-  ],
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
   "tasks": {
     "build": {
-      "dependsOn": ["^build", "check-types"],
+      "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**"],
-      "env": ["VITE_*"]
+      "outputs": ["dist/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -23,21 +15,33 @@
     },
     "dev": {
       "cache": false,
-      "persistent": true,
-      "passThroughEnv": ["API_ADDR", "API_PROXY_TARGET"]
+      "persistent": true
     },
-    "@repo/frontend#dev": {
+    "db:push": {
+      "cache": false
+    },
+    "db:studio": {
       "cache": false,
-      "persistent": true,
-      "with": ["@repo/api#dev"],
-      "passThroughEnv": ["API_PROXY_TARGET"]
+      "persistent": true
     },
-    "@repo/api#build": {
+    "db:migrate": {
+      "cache": false
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:start": {
       "cache": false,
-      "outputs": ["dist/**"],
-      "env": ["GOOS", "GOARCH", "CGO_ENABLED", "GOFLAGS", "GOTOOLCHAIN"]
+      "persistent": true
     },
-    "@repo/api#lint": {
+    "db:stop": {
+      "cache": false
+    },
+    "db:watch": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:down": {
       "cache": false
     }
   }
