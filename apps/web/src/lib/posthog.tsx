@@ -15,8 +15,8 @@ function initPostHog() {
 
   posthog.init(posthogKey, {
     api_host: posthogHost,
-    // Capture pageviews automatically
-    capture_pageview: true,
+    // Capture pageviews on initial load and on client-side route changes
+    capture_pageview: "history_change",
     // Capture pageleaves for session tracking
     capture_pageleave: true,
     // Enable session recording (optional - requires PostHog plan)
